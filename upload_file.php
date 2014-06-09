@@ -16,7 +16,7 @@ $allowedMimeTypes = array(
 
 $extension = end(explode(".", $_FILES["file"]["name"]));
 
-if ( 20000 < $_FILES["file"]["size"]  ) {
+if ( 2000000 < $_FILES["file"]["size"]  ) {
   die( 'Please provide a smaller file [E/1].' );
 }
 
