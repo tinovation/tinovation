@@ -1,5 +1,5 @@
  <?php 
- $target = "files/"; 
+ $target = "uploads/"; 
  $target = $target . basename( $_FILES['uploaded']['name']) ; 
  $ok=1; 
  if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)) 
