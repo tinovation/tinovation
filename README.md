@@ -1,4 +1,0 @@
-tinovation
-==========
-
-Tinovation file viewer
