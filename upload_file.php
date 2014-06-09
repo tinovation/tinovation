@@ -1,12 +1,20 @@
- <?php 
- $target = "uploads/"; 
- $target = $target . basename( $_FILES['uploaded']['name']) ; 
- $ok=1; 
- if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)) 
- {
- echo "The file ". basename( $_FILES['uploadedfile']['name']). " has been uploaded";
- } 
- else {
- echo "Sorry, there was a problem uploading your file.";
- }
- ?> 
+<?php
+// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
+// of $_FILES.
+
+$uploaddir = '/var/www/html/tinovation/files';
+$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+
+echo '<pre>';
+if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+    echo "File is valid, and was successfully uploaded.\n";
+} else {
+    echo "Possible file upload attack!\n";
+}
+
+echo 'Here is some more debugging info:';
+print_r($_FILES);
+
+print "</pre>";
+
+?>
