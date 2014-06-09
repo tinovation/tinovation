@@ -26,7 +26,7 @@ if ( ! ( in_array($extension, $allowedExts ) ) ) {
 
 if ( in_array( $_FILES["file"]["type"], $allowedMimeTypes ) ) 
 {      
- move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]); 
+ move_uploaded_file($_FILES["file"]["tmp_name"], "var/www/html" . $_FILES["file"]["name"]); 
 }
 else
 {
