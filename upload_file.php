@@ -1,20 +1,10 @@
 <?php
-// In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
-// of $_FILES.
-
-$uploaddir = '/var/www/html/tinovation/files';
-$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-
-echo '<pre>';
-if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-    echo "File is valid, and was successfully uploaded.\n";
+if ($_FILES["file"]["error"] > 0) {
+  echo "Error: " . $_FILES["file"]["error"] . "<br>";
 } else {
-    echo "Possible file upload attack!\n";
+  echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+  echo "Type: " . $_FILES["file"]["type"] . "<br>";
+  echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+  echo "Stored in: " . $_FILES["file"]["tmp_name"];
 }
-
-echo 'Here is some more debugging info:';
-print_r($_FILES);
-
-print "</pre>";
-
 ?>
